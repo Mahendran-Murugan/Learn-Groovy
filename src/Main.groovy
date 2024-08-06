@@ -5,7 +5,7 @@ class Main {
         int i = 3000
         long l = 40000000
         float f = 12.2
-        double d = 14.444444444
+        double d = 90809481599080948159
         char c = 'a'
         String str = "Mahendran is learning groovy"
         boolean bool = true
