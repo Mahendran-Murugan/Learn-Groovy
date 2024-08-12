@@ -141,3 +141,174 @@
 //
 //println(userDetails)
 
+// Binary Search
+
+//int[] arr = new int[] {0, 1, 2, 3, 4, 5}
+//int x = 1
+//int low = 0
+//int high = arr.length - 1
+//int mid = 0
+//while(low <= high){
+//    mid = (low + high).intdiv(2)
+//    if(arr[mid] == x){
+//        println("The index of $x is $mid")
+//        break
+//    }else if(arr[mid] < x){
+//        low = mid + 1
+//    }else{
+//        high = mid - 1
+//    }
+//}
+
+// Convert the Phrase into Acronyms
+
+//Closure converter = { String str ->
+//    List words = str.split("[\\s-]+")
+//    String res = ""
+//    words.each {
+//        res += it[0].toUpperCase()
+//    }
+//    println(res)
+//}
+//
+//List phrases = ["as soon as possible", "Liquid-crystal display", "Thank George It's Friday!"]
+//phrases.each {
+//    converter(it)
+//}
+
+// Comparing DNA Strands
+
+//String firstStrand = "GAGCCTACTAACGGGAT"
+//String secondStrand = "CATCGTAATGACGGCCT"
+//
+//int hammingDistance = 0
+//for(int i = 0; i < firstStrand.length(); i++){
+//    if(firstStrand.charAt(i) != secondStrand.charAt(i)) hammingDistance++
+//}
+//
+//println(hammingDistance)
+
+// Pangram or Not
+
+//int[] arr = new int[26]
+//String str = "abcdefghijklmnopqrstuvwxyz"
+//str = str.toLowerCase()
+//str.each {
+//    arr[(char)it - 97]++
+//}
+//boolean flag = true
+//arr.each {
+//    if(it == 0) {
+//        flag = false
+//    }
+//}
+//
+//if(flag) println("Pangram")
+//else println("Not Pangram")
+
+// RNA Complement for DNA
+
+//Map conversion = [
+//        G: 'C',
+//        C: 'G',
+//        T: 'A',
+//        A: 'U'
+//]
+//
+//String DNA = "ACGT"
+//String complementRNA = ""
+//
+//DNA.each{
+//    complementRNA += conversion[it]
+//}
+//
+//println(complementRNA)
+
+// Check the verification Logic of 10 digit no
+
+//String number = "3-598-21508-8"
+//int result = 0
+//int i = 10
+//number.each {
+//    if(it == '-') return
+//    result += (char)it * i--
+//}
+//
+//if(result % 11 == 0) println("Valid")
+//else println("Not Valid")
+
+// Find Words Scrabble Score
+//
+//String word = "CABBAGE"
+//int score = 0
+//
+//Closure<Integer> find = { String letter ->
+//    switch (letter){
+//        case ['A','E','I','O','U','L','N','R','S','T']:
+//            return 1
+//        case ['D', 'G']:
+//            return 2
+//        case ['B','C','M','P']:
+//            return 3
+//        case ['F','H','V','W','Y']:
+//            return 4
+//        case 'K':
+//            return 5
+//        case ['J','X']:
+//            return 8
+//        case ['Q','Z']:
+//            return 10
+//    }
+//    return 0
+//}
+//
+//word.each {
+//    score += find(it)
+//}
+//
+//println(score)
+
+// Count the No of Occurrence of Each Words
+
+//String str = "Thats the password: 'PASSWORD 123', cried the Special Agent.\nSo I fled"
+//def wordList = str.toLowerCase().split("[\\s:!\\',\\.]+")
+//Map res = [:]
+//wordList.each {
+//    if(res.containsKey(it)) res[it]++
+//    else res[it] = 1
+//}
+//
+//println(res)
+
+// Anagrams
+
+//String target = "stone"
+//List candidates = ["stone", "tones", "banana", "tons", "notes", "Seton"]
+//
+//candidates.each { candidate ->
+//    if(candidate == target) return
+//    if(candidate.length() != target.length()) return
+//    String curr = candidate.toLowerCase()
+//    target.each {
+//        curr -= it
+//    }
+//    if(curr.length() == 0) println(candidate)
+//}
+
+// Check for Isograms
+
+List words = ["lumberjack", "background", "downstream", "six-year-old"]
+int[] arr = new int[26]
+boolean flag = true
+words.each {String word ->
+    flag = true
+    word.toLowerCase().each {
+        if(it == " " || it == "-") return
+        arr[(char)it - 97]++
+    }
+    arr.each {
+        if(it > 1) flag = false
+    }
+    Arrays.fill(arr, 0)
+    if(flag) println(word)
+}
